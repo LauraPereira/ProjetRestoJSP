@@ -45,7 +45,7 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link"
-					href="../src/srv/SArticle">Notre carte</a></li>
+					href="../ProjetWeb/SArticle">Notre carte</a></li>
 				<li class="nav-item"><a class="nav-link active" href="#">Connexion</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">Inscription</a>

@@ -57,7 +57,7 @@
 	</nav> </header>
 	<h1>Fais ton propre repas</h1>
 	<p>
-		La commande de User(Montant panier :
+		La commande de (Montant panier :
 		<c:out value="${requestScope.mntTot}" />
 		€)
 	</p>
