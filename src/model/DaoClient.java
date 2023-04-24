@@ -30,9 +30,9 @@ public class DaoClient {
 	}
 
 	
-	public Client selectById (int id) throws ClassNotFoundException, SQLException {
-		Client p = null ;
-		String sql = "select * from clients where id = " + id ;
+	public Client selectById (String id) throws ClassNotFoundException, SQLException {
+		Client c = null ;
+		String sql = "select * from clients where idClient = '" + id+"'";
 		
 		Class.forName("com.mysql.jdbc.Driver") ; 
 		Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/projet_resto_jsp", "root", "root" ); 
@@ -43,12 +43,12 @@ public class DaoClient {
 		
 		if (rs.next()) 
 		{
-			p =  new Client (rs.getString("id"), rs.getString("nom"),  rs.getString("prenom"),rs.getString("password"), rs.getString("adresse") );
+			c =  new Client (rs.getString("idClient"), rs.getString("password"),  rs.getString("nom"),rs.getString("prenom"), rs.getString("adresse") );
 		}
 		
 		conn.close();
 		
-		return p ;
+		return c ;
 	}
 
 

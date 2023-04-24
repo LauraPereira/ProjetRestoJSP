@@ -25,7 +25,7 @@
 	rel="stylesheet" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Récap</title>
+<title>Inscription Echec</title>
 </head>
 <body class="resto">
 	<header class="header">

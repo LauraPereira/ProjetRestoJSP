@@ -25,7 +25,7 @@
 	rel="stylesheet" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Inscription-succès</title>
+<title>Inscription Succès</title>
 </head>
 <body class="resto">
 	<header class="header">
@@ -61,9 +61,9 @@
 	<main class="recap mt-3 d-flex justify-content-center">
 	<div>
 
-		Félicitations <span class="italic" style="color: var(- -bs-red)"><%=request.getParameter("prenom")%>
-			<%=request.getParameter("nom")%> </span><br /> Vous êtes bien inscrit sur
-		<span class="italic" style="color: var(- -bs-red)">Eat&Love</span> <br />
+		Félicitations <span class="italic" style="color: var(--bs-red)"><%=request.getParameter("prenom")%>
+			<%=request.getParameter("nom")%> </span><br /> Vous êtes bien inscrit(e) sur
+		<span class="italic" style="color: var(--bs-red)">Eat&Love</span> <br />
 		<br /> <a href="connexion.jsp">Connectez-vous à votre espace</a>
 	</div>
 	</main>

@@ -8,21 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Client;
 import model.DaoClient;
 
 /**
- * Servlet implementation class SInscription
+ * Servlet implementation class SConnexion
  */
-@WebServlet("/insert")
-public class SInscription extends HttpServlet {
+@WebServlet("/connect")
+public class SConnexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public SInscription() {
+	public SConnexion() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -34,23 +35,44 @@ public class SInscription extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Si l'id existe on redirige vers la page d'erreur
-		
-		// Sinon on inscrit en bdd :
-
+		// On récupère les infos du formulaire
 		String id = request.getParameter("id");
 		String password = request.getParameter("psw");
-		String nom = request.getParameter("nom");
-		String prenom = request.getParameter("prenom");
-		String adresse = request.getParameter("adresse");
 
-		Client c = new Client(id, password, nom, prenom, adresse);
+		// Si id vide on renvoie vers la page d'erreur
+		if (id == null || id.equals("") || password == null || password.equals("")) {
+			request.getRequestDispatcher("WEB-INF/connexion-echec.jsp").forward(request, response);
+		}
 
+		// On récupère le psw associé à l'id en bdd
 		DaoClient x = new DaoClient();
 
 		try {
-			x.insert(c);
-			request.setAttribute("client", c);
+			Client c = x.selectById(id);
+
+			String idBdd = c.getId();
+			String pswBdd = c.getPassword();
+
+			// Si id et psw correspondent à id et psw bdd on renvoie vers la page de succès
+			// On passe les infos dans la session
+			if (id.equals(idBdd) && password.equals(pswBdd)) {
+				
+				// On stocke les infos du client
+				request.setAttribute("client", c);
+				
+				// On place des infos dans session
+				// (choix de ne pas placer l'obejt c en entier car il contient le mdp : sécurité)
+				HttpSession x_session = request.getSession();
+				x_session.setAttribute("id", id);
+				x_session.setAttribute("prenom", c.getPrenom());
+				x_session.setAttribute("nom", c.getNom());
+	
+				
+				request.getRequestDispatcher("WEB-INF/connexion-succes.jsp").forward(request, response);
+			} else {
+				request.getRequestDispatcher("WEB-INF/connexion-echec.jsp").forward(request, response);
+			}
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,7 +81,6 @@ public class SInscription extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		request.getRequestDispatcher("WEB-INF/inscription-succes.jsp").forward(request, response);
 	}
 
 	/**

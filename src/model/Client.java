@@ -20,6 +20,8 @@ public class Client {
 		this.adresse = adresse;
 	}
 
+
+
 	public String getId() {
 		return id;
 	}

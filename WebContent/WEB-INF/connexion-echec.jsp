@@ -15,6 +15,7 @@
 <!-- IMPORT STYLES -->
 <link rel="stylesheet" href="WEB-SRC/styles/global.css" />
 <link rel="stylesheet" href="WEB-SRC/styles/header.css" />
+<link rel="stylesheet" href="WEB-SRC/styles/recap.css" />
 
 <!-- IMPORT POLICES -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,7 +39,7 @@
 		class="navbar navbar-expand-sm navbar-dark italic fs-5"
 		style="background-color: #3cb371">
 	<div class="container-fluid">
-		<a class="navbar-brand fs-5" style="color: var(--bs-red)" href="#">Eat
+		<a class="navbar-brand fs-5" style="color: var(- -bs-red)" href="#">Eat
 			& Love</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#collapsibleNavbar">
@@ -50,30 +51,22 @@
 						carte</a></li>
 				<li class="nav-item"><a class="nav-link active" href="#">Connexion</a>
 				</li>
-				<li class="nav-item"><a class="nav-link " href="#">Inscription</a>
-				</li>
+				<li class="nav-item"><a class="nav-link " href="#">Inscription
+					</a></li>
 			</ul>
 		</div>
 	</div>
 	</nav> </header>
 
-	<main class="connexion mt-3">
-	<form action="connect" method="post">
-		<div class="mb-3 mt-3">
-			<label for="id" class="form-label">Identifiant</label> <input
-				type="text" class="form-control"
-				placeholder="Saisir votre identifiant" name="id" />
-		</div>
+    <main class="recap mt-3 d-flex justify-content-center">
+      <div>
+        Echec de la connexion<br />
+        Identifiant ou votre mot de passe invalide<br /><br /><br />
 
-		<div class="mb-3 mt-3">
-			<label for="psw" class="form-label">Mot de passe</label> <input
-				type="password" class="form-control"
-				placeholder="Saisir votre mot de passe" name="psw" />
-		</div>
+        <a href="connexion.jsp">Essayer de se connecter à nouveau</a><br />
+        <a href="inscription.jsp">Retourner sur la page d'inscription</a>
+      </div>
+    </main>
 
-		<button type="submit" class="btn btn-primary"
-			style="background-color: #3cb371">Se connecter</button>
-	</form>
-	</main>
 </body>
 </html>
