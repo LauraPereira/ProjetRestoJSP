@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+
+.redirect {
+	display:flex;
+	justify-content: space-around;
+}
+

@@ -78,25 +78,25 @@
 		</form>
 	</div>
 	<div>
-		<form action="SRecapCommande" method="post">
 
-			<table>
+		<table>
+			<tr>
+				<th>Articles</th>
+				<th>Quantité</th>
+				<th>Prix total</th>
+			</tr>
+			<c:forEach var="infos" items="${sessionScope.lstI}">
 				<tr>
-					<th>Articles</th>
-					<th>Quantité</th>
-					<th>Prix total</th>
+					<td><c:out value="${infos.key}" /></td>
+					<c:forTokens items="${infos.value}" delims="," var="split">
+						<td><c:out value="${split}" /></td>
+					</c:forTokens>
 				</tr>
-				<c:forEach var="infos" items="${sessionScope.lstI}">
-					<tr>
-						<td><c:out value="${infos.key}" /></td>
-						<c:forTokens items="${infos.value}" delims="," var="split">
-							<td><c:out value="${split}" /></td>
-						</c:forTokens>
-					</tr>
-				</c:forEach>
-			</table>
+			</c:forEach>
+		</table>
 	</div>
-	<input type="submit" value="submit">
+	<form action="SRecapCommande" method="post">
+		<input type="submit" value="submit">
 	</form>
 </body>
 </html>

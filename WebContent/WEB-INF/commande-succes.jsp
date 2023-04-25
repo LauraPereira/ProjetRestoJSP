@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="WEB-SRC/styles/header.css" />
 <link rel="stylesheet" href="WEB-SRC/styles/footer.css" />
 <link rel="stylesheet" href="WEB-SRC/styles/accueil.css" />
-<link rel="stylesheet" href="WEB-SRC/styles/recapCommande.css" />
+<link rel="stylesheet" href="WEB-SRC/styles/cmd-succes.css" />
 
 
 
@@ -36,7 +36,7 @@
     /> -->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Commande</title>
+<title>Commande envoyée</title>
 </head>
 <body>
 
@@ -72,72 +72,25 @@
 	</nav> </header>
 
 
-	<main>
 
-	<div class="user_infos">
-
+	<main> 
+	<section class="recap_finale">
+	<div class="txt_recap_finale">
 		<p>
-			Récaputulatif de la commande de
+			Félicitations
 			<c:out value="${sessionScope.prenom}" />
-			<c:out value="${sessionScope.nom}" />
-			:
+			<c:out value="${sessionScope.nom}" /> !</p>
+		<p>Votre commande est validée.</p>
+		<p>
+			Le montant total est de
+			<c:out value="${sessionScope.mntTot}" />
+			euros.
 		</p>
 	</div>
-
-	<div class="container">
-		<p></p>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Articles</th>
-					<th>Quantité</th>
-					<th>Prix total</th>
-				</tr>
-			</thead>
-			<tbody>
-
-
-				<c:forEach var="infos" items="${sessionScope.lstI}">
-					<tr>
-						<td><c:out value="${infos.key}" /></td>
-						<c:forTokens items="${infos.value}" delims="," var="split">
-							<td><c:out value="${split}" /></td>
-						</c:forTokens>
-					</tr>
-				</c:forEach>
-			</tbody>
-
-			<tfoot>
-				<tr>
-					<th>Total de la commande</th>
-					<th><c:out value="${sessionScope.lstI.size()}" /> article(s)</th>
-					<th><c:out value="${sessionScope.mntTot}" />
-					<th>
-				</tr>
-			</tfoot>
-
-		</table>
-
-		<section class="redirect">
-		<div class="retourPanier">
-		<form action="SPanier" method="post">
-		<button type="submit" class="btn btn-primary"
-			style="background-color: #3cb371">Modifier ma commande</button>
-		</form>
-		</div>
-		<div class="envoyer_cmd">
-		<form action="SEnvoiCmd" method="post">
-			<button type="submit" class="btn btn-primary"
-			style="background-color: #3cb371">Valider ma commande</button>
-		</form>
-		</div>
-		</section>
+	<div class="img_recap_finale">
+		<img src="WEB-SRC/img/validee.jpg" alt="Bon appétit" />
 	</div>
-
-
-
-
-	</main>
+	</section> </main>
 
 
 
