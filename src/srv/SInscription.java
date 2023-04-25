@@ -34,7 +34,6 @@ public class SInscription extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Si l'id existe on redirige vers la page d'erreur
 		
 		// Sinon on inscrit en bdd :
 
@@ -54,9 +53,11 @@ public class SInscription extends HttpServlet {
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.getRequestDispatcher("WEB-INF/inscription-echec.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.getRequestDispatcher("WEB-INF/inscription-echec.jsp").forward(request, response);
 		}
 
 		request.getRequestDispatcher("WEB-INF/inscription-succes.jsp").forward(request, response);

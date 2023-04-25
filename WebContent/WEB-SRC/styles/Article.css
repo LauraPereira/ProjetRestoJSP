@@ -1,0 +1,23 @@
+body>* {
+	width: 100%;
+}
+
+.resto {
+	width: 65vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+p, .p-3 {
+	text-align: center;
+}
+
+.plat {
+	color: #3cb371;
+	font-size: 30px;
+}
+
+.desc {
+	color: red;
+	font-size: 15px;
+}

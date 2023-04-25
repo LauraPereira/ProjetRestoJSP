@@ -33,6 +33,7 @@ public class SPanier extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		DaoArticle x = new DaoArticle();
 
 		try {
@@ -40,6 +41,7 @@ public class SPanier extends HttpServlet {
 			request.setAttribute("lst", lst);
 
 		} catch (ClassNotFoundException | SQLException e) {
+
 			e.printStackTrace();
 		}
 		request.getRequestDispatcher("WEB-INF/Panier.jsp").forward(request, response);
@@ -51,6 +53,7 @@ public class SPanier extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		doGet(request, response);
 	}
 

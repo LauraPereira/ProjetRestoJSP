@@ -25,33 +25,34 @@ public class Article {
         this.Categorie = Categorie;
     }
 
-    public int getIdArticle() {
-        return IdArticle;
-    }
 
-    public String getNomArticle() {
-        return NomArticle;
-    }
+	public int getIdArticle() {
+		return IdArticle;
+	}
 
-    public String getDescription() {
-        return Description;
-    }
+	public String getNomArticle() {
+		return NomArticle;
+	}
 
-    public int getPrix() {
-        return Prix;
-    }
+	public String getDescription() {
+		return Description;
+	}
 
-    public String getNomImage() {
-        return NomImage;
-    }
+	public int getPrix() {
+		return Prix;
+	}
 
-    public String getCategorie() {
-        return Categorie;
-    }
+	public String getNomImage() {
+		return NomImage;
+	}
 
-    @Override
-    public String toString() {
-        return "Article [IdArticle=" + IdArticle + ", NomArticle=" + NomArticle + ", Description=" + Description
-                + ", Prix=" + Prix + ", NomImage=" + NomImage + ", Categorie=" + Categorie + "]";
-    }
+	public String getCategorie() {
+		return Categorie;
+	}
+
+	@Override
+	public String toString() {
+		return "Article [IdArticle=" + IdArticle + ", NomArticle=" + NomArticle + ", Description=" + Description
+				+ ", Prix=" + Prix + ", NomImage=" + NomImage + ", Categorie=" + Categorie + "]";
+	}
 }

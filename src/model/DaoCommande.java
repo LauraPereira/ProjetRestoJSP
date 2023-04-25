@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DaoCommande {
-	
+
 	public ArrayList<Commande> select() throws ClassNotFoundException, SQLException {
 		ArrayList<Commande> lst = new ArrayList<Commande>();
 		String sql = "select * from commandes";
@@ -64,6 +64,7 @@ public class DaoCommande {
 		ps.setString (5, c.getDetail()) ;
 		
 		ps.executeUpdate(); 
+
 		conn.close();
 	}
 

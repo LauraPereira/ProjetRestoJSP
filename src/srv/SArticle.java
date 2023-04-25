@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Article;
 import model.DaoArticle;
@@ -36,6 +37,8 @@ public class SArticle extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DaoArticle x = new DaoArticle();
+		HttpSession session = request.getSession();
+
 		try {
 			ArrayList<Article> lstE = x.selectByCat("Entrees");
 			request.setAttribute("lstE", lstE);

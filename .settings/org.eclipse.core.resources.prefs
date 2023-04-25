@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
+encoding//WebContent/WEB-INF/Panier.jsp=UTF-8
+=======
 encoding//src/model/LigneComm.java=UTF-8
+>>>>>>> dev

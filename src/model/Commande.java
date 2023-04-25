@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Date;
-
 public class Commande {
 	
 	private int idCommande;
@@ -87,10 +85,13 @@ public class Commande {
 		return "Commande [idCommande=" + idCommande + ", idClient=" + idClient + ", date=" + date + ", total=" + total
 				+ ", detail=" + detail + "]";
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
 
 }
