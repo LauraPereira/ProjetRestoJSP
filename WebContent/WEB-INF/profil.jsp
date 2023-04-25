@@ -114,10 +114,11 @@
 		<h2 class="italic" style="color: var(- -bs-red)">Mes commandes</h2>
 
 		<%
-			ArrayList<Commande> liste = (ArrayList<Commande>) request.getAttribute("commandes");
-			if (liste.isEmpty()) {
-				out.print("<p> Votre historique de commande est vide</p>");
-			}
+			if (request.getAttribute("commandes") != null) {
+				ArrayList<Commande> liste = (ArrayList<Commande>) request.getAttribute("commandes");
+				if (liste.isEmpty()) {
+					out.print("<p> Votre historique de commande est vide</p>");
+				}
 		%>
 
 		<table class="table">
@@ -132,9 +133,10 @@
 
 				<%
 					for (Commande c : liste) {
-						out.print("<tr> <td>" + c.getDate() + " </td><td>" + c.getDetail() + "</td><td>" + c.getTotal()
-								+ " € </td></tr>");
+							out.print("<tr> <td>" + c.getDate() + " </td><td>" + c.getDetail() + "</td><td>" + c.getTotal()
+									+ " € </td></tr>");
 
+						}
 					}
 				%>
 
