@@ -2,13 +2,14 @@ package srv;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -68,10 +69,14 @@ public class SEnvoiCmd extends HttpServlet {
 			Details[j] = iterator.next();
 			j = j + 2;
 		}
+		
+		DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		Date dt = new Date();
+
 
 		int idCommande = 0;
 		String idClient = (String) session.getAttribute("id");
-		String date = new Date().toString();
+		String date = format.format(dt).toString();
 		int total = (int) session.getAttribute("mntTot");
 		System.out.println(Arrays.toString(Details));
 		String detail = Arrays.toString(Details);
