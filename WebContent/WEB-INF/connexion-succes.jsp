@@ -57,10 +57,10 @@
 					<%
 						String prenom = session.getAttribute("prenom").toString();
 						String nom = session.getAttribute("nom").toString();
-					%> <a class="nav-link disabled" style="color: var(- -bs-red)"
-					href=""><%=prenom + " " + nom%> - Mon espace</a>
+					%> <a class="nav-link" style="color: var(- -bs-red)" href="profil"><%=prenom + " " + nom%>
+						- Mon espace</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="accueil.jsp">Déconnexion</a>
+				<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a>
 				</li>
 			</ul>
 		</div>
