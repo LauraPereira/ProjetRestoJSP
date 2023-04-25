@@ -2,11 +2,12 @@
 
 .img_recap_finale img {
 	max-height: 200px;
+	margin: 50px;
 }
 
 .recap_finale {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .txt_recap_finale {
