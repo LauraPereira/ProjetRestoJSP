@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+
+
+
+
+.social_media {
+	height: 100px;
+}
+.sm_img {
+	
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+
+
+
+.contact_section {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.location {
+	width:50%;
+	
+}
+
+.container {
+	width:50%;
+	margin-left:20px;
+	margin-right:20px;
+}
+
+.location h2 {
+	margin-left:50px;
+}
+
+.location img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	width: 50%;
+height:60%;
+ 	object-fit:contain;
+} 
+
