@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Article;
 import model.DaoArticle;
@@ -40,7 +41,7 @@ public class SPanier2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		HttpSession session = request.getSession();
 		String plat = request.getParameter("plats");
 
 		int qte = Integer.parseInt(request.getParameter("qte"));
@@ -52,12 +53,31 @@ public class SPanier2 extends HttpServlet {
 			Article a = x.selectByNom(plat);
 
 			int prix = a.getPrix() * qte;
-			lstI.put(plat, qte + "," + prix);
-			request.setAttribute("lstI", lstI);
-			System.out.println(mntTot);
 			mntTot += prix;
-			System.out.println(mntTot);
-			request.setAttribute("mntTot", mntTot);
+			HashMap lstTmp = new HashMap();
+			lstTmp = (HashMap) session.getAttribute("lstI");
+			String value = (String) lstTmp.get(plat);
+
+			if (value != null) {
+
+				String[] tabV = value.split(",");
+
+				int qteTab = Integer.parseInt(tabV[0]) + qte;
+				int prixTab = Integer.parseInt(tabV[1]) + prix;
+
+				lstTmp.replace(plat, qteTab + "," + prix);
+
+				request.setAttribute("mntTot", mntTot);
+				session.setAttribute("lstI", lstI);
+
+			} else {
+
+				lstI.put(plat, qte + "," + prix);
+
+				request.setAttribute("mntTot", mntTot);
+				session.setAttribute("lstI", lstI);
+			}
+
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

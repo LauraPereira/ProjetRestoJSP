@@ -22,3 +22,12 @@ body>* {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+h1, #infosU {
+	text-align: center;
+}
+
+#formV>input {
+	float: right;
+	margin-right: 5%;
+}

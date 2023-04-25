@@ -12,7 +12,7 @@
 	rel="stylesheet" />
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="style/Panier.css" />
+<link rel="stylesheet" href="WEB-SRC/style/Panier.css" />
 
 <!-- IMPORT POLICES -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +28,7 @@
 <body>
 	<header class="header">
 	<div class="header__baniere">
-		<img class="header__baniere__img" src="/img/logo.jpg"
+		<img class="header__baniere__img" src="WEB-SRC/img/logo.jpg"
 			alt="image-baniere" />
 	</div>
 
@@ -56,46 +56,51 @@
 	</div>
 	</nav> </header>
 	<h1>Fais ton propre repas</h1>
-	<p>
+	<p id="infosU">
 		La commande de (Montant panier :
 		<c:out value="${requestScope.mntTot}" />
 		€)
 	</p>
-
-	<div>
-		<p>Fais ton choix parmi nos plats faits maison :</p>
-		<form action="SPanier2" methode="post">
-			<select name="plats">
-				<option value=""></option>
-				<c:forEach var="a" items="${requestScope.lst}">
-					<option value="<c:out value="${a.nomArticle}" />"><c:out
-							value="${a.nomArticle}" /></option>
-				</c:forEach>
-			</select>
-			<p>Quantité:</p>
-			<input type="text" name="qte"> <input type="submit"
-				value="Ajouter au panier">
-		</form>
-	</div>
-	<div>
-		<table>
-			<tr>
-				<th>Articles</th>
-				<th>Quantité</th>
-				<th>Prix total</th>
-			</tr>
-			<c:forEach var="infos" items="${requestScope.lstI}">
+	<div class="row">
+		<div class="col-sm-6">
+			<p class="form-label">Fais ton choix parmi nos plats faits maison
+				:</p>
+			<form action="SPanier2" methode="post">
+				<select name="plats" class="form-select">
+					<option value=""></option>
+					<c:forEach var="a" items="${requestScope.lst}">
+						<option value="<c:out value="${a.nomArticle}" />"><c:out
+								value="${a.nomArticle}" /></option>
+					</c:forEach>
+				</select>
+				<div class="row">
+					<p class="col-sm-1">Quantité:</p>
+					<input type="text" name="qte" class="col-sm-1"> <input
+						type="submit" value="Ajouter au panier"
+						class="col-sm-3 btn btn-light">
+				</div>
+			</form>
+		</div>
+		<div class="col-sm-6 container mt-3">
+			<table class="table">
 				<tr>
-					<td><c:out value="${infos.key}" /></td>
-					<c:forTokens items="${infos.value}" delims="," var="split">
-						<td><c:out value="${split}" /></td>
-					</c:forTokens>
+					<th>Articles</th>
+					<th>Quantité</th>
+					<th>Prix total</th>
 				</tr>
-			</c:forEach>
-		</table>
+				<c:forEach var="infos" items="${sessionScope.lstI}">
+					<tr>
+						<td><c:out value="${infos.key}" /></td>
+						<c:forTokens items="${infos.value}" delims="," var="split">
+							<td><c:out value="${split}" /></td>
+						</c:forTokens>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
 	</div>
-	<form action="SRecapCommande" method="post">
-		<input type="submit" value="Valider le panier">
+	<form action="SRecapCommande" method="post" id="formV">
+		<input type="submit" value="Valider le panier" class="btn btn-success">
 	</form>
 </body>
 </html>
