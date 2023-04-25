@@ -63,4 +63,21 @@ public class DaoArticle {
 		conn.close();
 		return a;
 	}
+
+	public int selectPrix(String nom) throws ClassNotFoundException, SQLException {
+		int prix = 0;
+		String sql = "select prix from articles where NomArticle='" + nom + "'";
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet_resto_jsp", "root", "root");
+
+		Statement st = conn.createStatement();
+		ResultSet res = st.executeQuery(sql);
+
+		if (res.next()) {
+			prix = res.getInt("Prix");
+		}
+		conn.close();
+		return prix;
+	}
+
 }

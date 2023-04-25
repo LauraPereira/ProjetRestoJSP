@@ -24,6 +24,7 @@ public class SPanier2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private static HashMap<Object, String> lstI = new HashMap<Object, String>();
+	private static HashMap<String, Integer> lstI2 = new HashMap<String, Integer>();
 	private int mntTot;
 
 	/**
@@ -84,15 +85,20 @@ public class SPanier2 extends HttpServlet {
 
 				lstTmp.replace(plat, qteTab + "," + prix);
 
+				lstI2.put(plat, qte);
+
 				session.setAttribute("mntTot", mntTot);
-				session.setAttribute("lstI", lstI);
+				session.setAttribute("lstI", lstTmp);
+				session.setAttribute("lstI2", lstI2);
 
 			} else {
 
 				lstI.put(plat, qte + "," + prix);
+				lstI2.put(plat, qte);
 
 				session.setAttribute("mntTot", mntTot);
 				session.setAttribute("lstI", lstI);
+				session.setAttribute("lstI2", lstI2);
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {
