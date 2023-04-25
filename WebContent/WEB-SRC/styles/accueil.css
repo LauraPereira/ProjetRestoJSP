@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap')
+	;
+
+* {
+	font-family: 'Dancing Script', cursive;
+}
+
+section {
+	margin-top: 20px;
+}
+
+#carousel {
+	padding-left: 10em;
+	padding-right: 10em;
+	height: 50vh;
+	margin-bottom: 50px;
+}
+
+.carousel-inner, .carousel-item, #conteneur {
+	height: 100%;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.carousel-control-next {
+	right: 15%;
+}
+
+.carousel-control-prev {
+	left: 15%;
+}
+
+.carousel-caption {
+	font-weight: bold;
+	font-size: xx-large;
+	color: black;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon, .carousel-indicators {
+		color: black;
+	
+}
+
