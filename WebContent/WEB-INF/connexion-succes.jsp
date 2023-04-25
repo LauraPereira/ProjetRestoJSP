@@ -38,7 +38,7 @@
 	<nav class="navbar navbar-expand-sm navbar-dark italic fs-5"
 		style="background-color: #3cb371">
 	<div class="container-fluid">
-		<a class="navbar-brand fs-5" style="color: var(--bs-red)"
+		<a class="navbar-brand fs-5" style="color: var(- -bs-red)"
 			href="accueil.jsp">Eat & Love</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#collapsibleNavbar">
@@ -57,7 +57,7 @@
 					<%
 						String prenom = session.getAttribute("prenom").toString();
 						String nom = session.getAttribute("nom").toString();
-					%> <a class="nav-link" style="color: var(--bs-red)" href="profil"><%=prenom + " " + nom%>
+					%> <a class="nav-link" style="color: var(- -bs-red)" href="profil"><%=prenom + " " + nom%>
 						- Mon espace</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a>
@@ -71,7 +71,7 @@
 	<div>
 		Connexion réussie ! <br /> Bienvenue <span class="italic"
 			style="color: var(- -bs-red)"> <%=prenom + " " + nom%></span> <br />
-		<br /> <a href="carte.jsp">Voir note carte</a><br />
+		<br /> <a href="SArticle">Voir note carte</a><br />
 	</div>
 	</main>
 </body>
