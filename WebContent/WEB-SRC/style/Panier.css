@@ -1,18 +1,3 @@
-/* TAILLE ELEMENTS */
-.header__baniere {
-	height: 30vh;
-}
-
-.header__baniere__img {
-	width: 100%;
-	height: 100%;
-}
-
-/* TYPO */
-.italic {
-	font-family: "Dancing Script", cursive;
-}
-
 body>* {
 	width: 100%;
 }

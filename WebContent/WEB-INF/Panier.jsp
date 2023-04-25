@@ -13,7 +13,7 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="WEB-SRC/style/Panier.css" />
-
+<link rel="stylesheet" href="WEB-SRC/styles/header.css" />
 <!-- IMPORT POLICES -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,13 +43,27 @@
 			data-bs-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<div class="collapse navbar-collapse d-flex justify-content-between"
+			id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="#">Notre
+				<li class="nav-item"><a class="nav-link" href="SArticle">Notre
 						carte</a></li>
-				<li class="nav-item"><a class="nav-link active" href="#">Connexion</a>
+				<li class="nav-item"><a class="nav-link active"
+					href="connexion.jsp">Connexion</a></li>
+				<li class="nav-item"><a class="nav-link" href="inscription.jsp">Inscription</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Inscription</a>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/SPanier">Mon menu</a></li>
+			</ul>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<%
+						String prenom = session.getAttribute("prenom").toString();
+						String nom = session.getAttribute("nom").toString();
+					%> <a class="nav-link disabled" style="color: var(- -bs-red)"
+					href=""><%=prenom + " " + nom%> - Mon espace</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="accueil.jsp">Déconnexion</a>
 				</li>
 			</ul>
 		</div>
@@ -57,7 +71,9 @@
 	</nav> </header>
 	<h1>Fais ton propre repas</h1>
 	<p id="infosU">
-		La commande de (Montant panier :
+		La commande de
+		<%=session.getAttribute("id").toString()%>
+		(Montant panier :
 		<c:out value="${requestScope.mntTot}" />
 		€)
 	</p>

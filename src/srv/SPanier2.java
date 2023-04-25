@@ -42,6 +42,9 @@ public class SPanier2 extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
+		session.setAttribute("mntTot", mntTot);
+		session.setAttribute("lstI", lstI);
+
 		String plat = request.getParameter("plats");
 
 		int qte = Integer.parseInt(request.getParameter("qte"));
@@ -53,7 +56,12 @@ public class SPanier2 extends HttpServlet {
 			Article a = x.selectByNom(plat);
 
 			int prix = a.getPrix() * qte;
-			mntTot += prix;
+			if (session.getAttribute("mntTot") != null) {
+				mntTot = prix + (int) session.getAttribute("mntTot");
+			} else {
+				mntTot += prix;
+			}
+
 			HashMap lstTmp = new HashMap();
 			lstTmp = (HashMap) session.getAttribute("lstI");
 			String value = (String) lstTmp.get(plat);
@@ -67,14 +75,14 @@ public class SPanier2 extends HttpServlet {
 
 				lstTmp.replace(plat, qteTab + "," + prix);
 
-				request.setAttribute("mntTot", mntTot);
+				session.setAttribute("mntTot", mntTot);
 				session.setAttribute("lstI", lstI);
 
 			} else {
 
 				lstI.put(plat, qte + "," + prix);
 
-				request.setAttribute("mntTot", mntTot);
+				session.setAttribute("mntTot", mntTot);
 				session.setAttribute("lstI", lstI);
 			}
 

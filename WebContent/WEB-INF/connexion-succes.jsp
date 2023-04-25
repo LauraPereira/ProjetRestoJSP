@@ -47,16 +47,17 @@
 		<div class="collapse navbar-collapse d-flex justify-content-between"
 			id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="carte.jsp">Notre
-						carte</a></li>
-				<li class="nav-item"><a class="nav-link" href="src/srv/SPanier">Mon menu</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/SArticle">Notre carte</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/SPanier">Mon menu</a></li>
 			</ul>
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<%
 						String prenom = session.getAttribute("prenom").toString();
 						String nom = session.getAttribute("nom").toString();
-					%> <a class="nav-link disabled" style="color: var(--bs-red)"
+					%> <a class="nav-link disabled" style="color: var(- -bs-red)"
 					href=""><%=prenom + " " + nom%> - Mon espace</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="accueil.jsp">Déconnexion</a>
