@@ -79,7 +79,7 @@ DROP TABLE IF EXISTS `commandes`;
 CREATE TABLE `commandes` (
   `IdCommandes` int(11) NOT NULL AUTO_INCREMENT,
   `IdClient` varchar(45) DEFAULT NULL,
-  `Date` date DEFAULT NULL,
+  `Date` varchar(45) DEFAULT NULL,
   `Total` double DEFAULT NULL,
   `Detail` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`IdCommandes`)

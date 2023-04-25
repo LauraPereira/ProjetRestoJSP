@@ -53,21 +53,22 @@ public class SConnexion extends HttpServlet {
 			String idBdd = c.getId();
 			String pswBdd = c.getPassword();
 
-			// Si id et psw correspondent à id et psw bdd on renvoie vers la page de succès
+			// Si id et psw correspondent à id et psw bdd on renvoie vers la
+			// page de succès
 			// On passe les infos dans la session
 			if (id.equals(idBdd) && password.equals(pswBdd)) {
-				
+
 				// On stocke les infos du client
-//				request.setAttribute("client", c);
-				
+				// request.setAttribute("client", c);
+
 				// On place des infos dans session
-				// (choix de ne pas placer l'obejt c en entier car il contient le mdp : sécurité)
+				// (choix de ne pas placer l'obejt c en entier car il contient
+				// le mdp : sécurité)
 				HttpSession x_session = request.getSession();
 				x_session.setAttribute("id", id);
 				x_session.setAttribute("prenom", c.getPrenom());
 				x_session.setAttribute("nom", c.getNom());
-	
-				
+
 				request.getRequestDispatcher("WEB-INF/connexion-succes.jsp").forward(request, response);
 			} else {
 				request.getRequestDispatcher("WEB-INF/connexion-echec.jsp").forward(request, response);

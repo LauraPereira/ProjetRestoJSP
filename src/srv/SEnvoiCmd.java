@@ -2,7 +2,13 @@ package srv;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,9 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Client;
 import model.Commande;
-import model.DaoClient;
+import model.DaoArticle;
 import model.DaoCommande;
 
 /**
@@ -38,24 +43,51 @@ public class SEnvoiCmd extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
-		// String id = request.getParameter("id");
-		// String password = request.getParameter("psw");
-		// String nom = request.getParameter("nom");
-		// String prenom = request.getParameter("prenom");
-		// String adresse = request.getParameter("adresse");
-		//
-		// Commande c = new Commande(id, password, nom, prenom, adresse);
-		//
-		// DaoCommande x = new DaoCommande();
-		//
-		// try {
-		// x.insert(c);
-		// request.setAttribute("commande", c);
-		// } catch (ClassNotFoundException e) {
-		// e.printStackTrace();
-		// } catch (SQLException e) {
-		// e.printStackTrace();
-		// }
+		HashMap cmd = (HashMap) session.getAttribute("lstI2");
+
+		Collection plats = cmd.keySet();
+		Collection details = cmd.values();
+
+		DaoArticle y = new DaoArticle();
+
+		int length = cmd.size() * 2;
+		int[] Details = new int[length];
+		int i = 1;
+
+		for (Iterator<String> iterator = plats.iterator(); iterator.hasNext();) {
+			try {
+				Details[i] = y.selectByNom(iterator.next()).getIdArticle();
+				i = i + 2;
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		int j = 0;
+		for (Iterator<Integer> iterator = details.iterator(); iterator.hasNext();) {
+			Details[j] = iterator.next();
+			j = j + 2;
+		}
+
+		int idCommande = 0;
+		String idClient = (String) session.getAttribute("id");
+		String date = new Date().toString();
+		int total = (int) session.getAttribute("mntTot");
+		System.out.println(Arrays.toString(Details));
+		String detail = Arrays.toString(Details);
+
+		Commande c = new Commande(idCommande, idClient, date, total, detail);
+		DaoCommande x = new DaoCommande();
+
+		try {
+			x.insert(c);
+			session.setAttribute("commande", c);
+			System.out.println(c);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 		request.getRequestDispatcher("WEB-INF/commande-succes.jsp").forward(request, response);
 	}

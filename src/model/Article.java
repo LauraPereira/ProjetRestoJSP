@@ -9,6 +9,10 @@ public class Article {
 	private String NomImage;
 	private String Categorie;
 
+	public Article() {
+		super();
+	}
+
 	public Article(int IdArticle, String NomArticle, String Description, int Prix, String NomImage, String Categorie) {
 		super();
 		this.IdArticle = IdArticle;
