@@ -30,7 +30,7 @@
 <body class="resto">
 	<header class="header">
 	<div class="header__baniere">
-		<img class="header__baniere__img" src="WEB-SRC/img/logo.jpg"
+		<img class="header__baniere__img" src=".WEB-SRC/img/logo.jpg"
 			alt="image-baniere" />
 	</div>
 
