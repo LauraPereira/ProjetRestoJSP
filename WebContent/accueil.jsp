@@ -59,7 +59,7 @@
 		<div class="collapse navbar-collapse d-flex justify-content-between"
 			id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link active"
+				<li class="nav-item"><a class="nav-link "
 					href="../ProjetWeb/SArticle">Notre carte</a></li>
 					
 									<%
@@ -105,7 +105,7 @@
 	<div class="carousel slide" data-bs-ride="carousel" id="conteneur">
 		<ol class="carousel-indicators">
 			<button type="button" data-bs-target="#conteneur"
-				data-bs-slide-to="0" class="active"></button>
+				data-bs-slide-to="0" ></button>
 			<button type="button" data-bs-target="#conteneur"
 				data-bs-slide-to="1"></button>
 			<button type="button" data-bs-target="#conteneur"
