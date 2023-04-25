@@ -1,3 +1,5 @@
+<%@page import="model.Commande"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -56,7 +58,7 @@
 					<%
 						String prenom = session.getAttribute("prenom").toString();
 						String nom = session.getAttribute("nom").toString();
-					%> <a class="nav-link disabled" style="color: var(--bs-red)"
+					%> <a class="nav-link" style="color: var(--bs-red)"
 					href=""><%=prenom + " " + nom%> - Mon espace</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="./deconnexion">Déconnexion</a>
@@ -95,6 +97,13 @@
 
       <div class="profil mt-5">
         <h2 class="italic" style="color: var(--bs-red)">Mes commandes</h2>
+        
+        <% ArrayList<Commande> liste = (ArrayList<Commande>) request.getAttribute("commandes");
+        if(liste.isEmpty()){
+        	out.print("<p> Votre historique de commande est vide</p>");
+        }
+        %>
+        
         <table class="table">
           <thead>
             <tr>
@@ -104,21 +113,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>12/02/2023</td>
-              <td>blabla</td>
-              <td>12€</td>
-            </tr>
-            <tr>
-              <td>11/05/2023</td>
-              <td>Détail</td>
-              <td>54€</td>
-            </tr>
-            <tr>
-              <td>11/08/2023</td>
-              <td>Détail</td>
-              <td>26€</td>
-            </tr>
+          
+                  <%
+		
+            for (Commande c : liste) {
+                out.print("<tr> <td>" + c.getDate() + " </td><td>" + c.getDetail() + "</td><td>" + c.getTotal()+ " € </td></tr>");
+
+            }
+        %>
+         
           </tbody>
         </table>
       </div>

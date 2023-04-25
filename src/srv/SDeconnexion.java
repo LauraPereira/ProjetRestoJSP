@@ -33,7 +33,7 @@ public class SDeconnexion extends HttpServlet {
 		HttpSession x_session = request.getSession();
 		x_session.invalidate();
 		
-		request.getRequestDispatcher("inscription.jsp").forward(request, response);
+		request.getRequestDispatcher("accueil.jsp").forward(request, response);
 	}
 
 	/**
