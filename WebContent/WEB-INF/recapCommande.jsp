@@ -138,7 +138,7 @@
 			<tfoot>
 				<tr>
 					<th>Total de la commande</th>
-					<th><c:out value="${sessionScope.lstI.size()}" /> article(s)</th>
+					<th>   </th>
 					<th><c:out value="${sessionScope.mntTot}" />
 					<th>
 				</tr>
