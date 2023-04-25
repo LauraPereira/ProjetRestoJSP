@@ -13,9 +13,9 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- IMPORT STYLES -->
-<link rel="stylesheet" href="../WEB-SRC/styles/global.css" />
-<link rel="stylesheet" href="../WEB-SRC/styles/header.css" />
-<link rel="stylesheet" href="../WEB-SRC/styles/recap.css" />
+<link rel="stylesheet" href="WEB-SRC/styles/global.css" />
+<link rel="stylesheet" href="WEB-SRC/styles/header.css" />
+<link rel="stylesheet" href="WEB-SRC/styles/recap.css" />
 
 <!-- IMPORT POLICES -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
