@@ -40,7 +40,7 @@
 	<nav class="navbar navbar-expand-sm navbar-dark italic fs-5"
 		style="background-color: #3cb371">
 	<div class="container-fluid">
-		<a class="navbar-brand fs-5" style="color: var(- -bs-red)"
+		<a class="navbar-brand fs-5" style="color: var(--bs-red)"
 			href="accueil.jsp">Eat & Love</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#collapsibleNavbar">

@@ -45,41 +45,56 @@
 		<img class="header__baniere__img" src="WEB-SRC/img/logo.jpg"
 			alt="image-baniere" />
 	</div>
-
-	<!-- 	Ajouter la classe active sur le a de la page appelée Quand on est
-	connecté : faire disparaître les liens login et inscription Faire
-	apparaître un lien déconnexion  --> <nav
-		class="navbar navbar-expand-sm navbar-dark italic fs-5"
+	<nav class="navbar navbar-expand-sm navbar-dark italic fs-5"
 		style="background-color: #3cb371">
 	<div class="container-fluid">
-		<a class="navbar-brand fs-5" style="color: var(- -bs-red)"
+		<a class="navbar-brand fs-5" style="color: var(--bs-red)"
 			href="accueil.jsp">Eat & Love</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<div class="collapse navbar-collapse d-flex justify-content-between"
+			id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="SArticle">Notre
-						carte</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/SArticle">Notre carte</a></li>
+					
+									<%
+					if (session.getAttribute("id") == null) {
+				%>
 				<li class="nav-item"><a class="nav-link active"
 					href="connexion.jsp">Connexion</a></li>
-				<li class="nav-item"><a class="nav-link" href="inscription.jsp">Inscription</a>
-				</li>
+				<li class="nav-item"><a class="nav-link" href="inscription.jsp">Inscription</a></li>
+								<%
+					}
+				%>
+				<%
+					if (session.getAttribute("id") != null) {
+				%>
 				<li class="nav-item"><a class="nav-link"
 					href="../ProjetWeb/SPanier">Mon menu</a></li>
+				<%
+					}
+				%>
 			</ul>
+			<%
+				if (session.getAttribute("id") != null) {
+			%>
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<%
 						String prenom = session.getAttribute("prenom").toString();
-						String nom = session.getAttribute("nom").toString();
-					%> <a class="nav-link" style="color: var(- -bs-red)" href="profil"><%=prenom + " " + nom%>
-						- Mon espace</a>
+							String nom = session.getAttribute("nom").toString();
+					%> <a class="nav-link" style="color: var(--bs-red)"
+					href="profil"><%=prenom + " " + nom%> - Mon espace</a>
 				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="../ProjetWeb/deconnexion">Déconnexion</a></li>
 			</ul>
+			<%
+				}
+			%>
 		</div>
 	</div>
 	</nav> </header>
