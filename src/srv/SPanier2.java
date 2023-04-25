@@ -74,7 +74,7 @@ public class SPanier2 extends HttpServlet {
 			System.out.println(mntTot);
 			mntTot += prix;
 			System.out.println(mntTot);
-			request.setAttribute("mntTot", mntTot);
+			session.setAttribute("mntTot", mntTot);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
