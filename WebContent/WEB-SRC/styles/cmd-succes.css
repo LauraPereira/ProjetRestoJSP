@@ -3,3 +3,12 @@
 .img_recap_finale img {
 	max-height:200px;
 }
+
+.recap_finale {
+	display:flex;
+	justify-content:space-between;
+}
+
+.txt_recap_finale {
+	margin:50px;
+}

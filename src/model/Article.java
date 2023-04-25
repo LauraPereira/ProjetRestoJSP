@@ -8,8 +8,14 @@ public class Article {
     private int Prix;
     private String NomImage;
     private String Categorie;
+    
+    
+    
 
-    public Article(int IdArticle, String NomArticle, String Description, int Prix, String NomImage, String Categorie) {
+    public Article() {
+	}
+
+	public Article(int IdArticle, String NomArticle, String Description, int Prix, String NomImage, String Categorie) {
         super();
         this.IdArticle = IdArticle;
         this.NomArticle = NomArticle;

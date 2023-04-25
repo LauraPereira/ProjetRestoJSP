@@ -24,6 +24,8 @@ public class SPanier2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private static HashMap<Object, String> lstI = new HashMap<Object, String>();
+	private static HashMap<String, Integer> lstI2 = new HashMap<String, Integer>();
+
 	private int mntTot;
 
 	/**
@@ -54,32 +56,63 @@ public class SPanier2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
+		 HttpSession session = request.getSession();
+	        session.setAttribute("mntTot", mntTot);
+	        session.setAttribute("lstI", lstI);
 
-		
-		String plat = request.getParameter("plats");
+	        String plat = request.getParameter("plats");
 
-		int qte = Integer.parseInt(request.getParameter("qte"));
+	        int qte = Integer.parseInt(request.getParameter("qte"));
 
-		DaoArticle x = new DaoArticle();
-		try {
-			ArrayList<Article> lst = x.select();
-			request.setAttribute("lst", lst);
-			Article a = x.selectByNom(plat);
+	        DaoArticle x = new DaoArticle();
+	        try {
+	            ArrayList<Article> lst = x.select();
+	            request.setAttribute("lst", lst);
+	            Article a = x.selectByNom(plat);
 
-			int prix = a.getPrix() * qte;
-			lstI.put(plat, qte + "," + prix);
-			
-			session.setAttribute("lstI", lstI);
-			System.out.println(mntTot);
-			mntTot += prix;
-			System.out.println(mntTot);
-			session.setAttribute("mntTot", mntTot);
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
+	            int prix = a.getPrix() * qte;
 
-		request.getRequestDispatcher("WEB-INF/Panier.jsp").forward(request, response);
+	            if (session.getAttribute("mntTot") != null) {
+	                mntTot = prix + (int) session.getAttribute("mntTot");
+	            } else {
+	                mntTot += prix;
+	            }
+
+	            HashMap lstTmp = new HashMap();
+	            lstTmp = (HashMap) session.getAttribute("lstI");
+	            String value = (String) lstTmp.get(plat);
+
+	            if (value != null) {
+
+	                String[] tabV = value.split(",");
+
+	                int qteTab = Integer.parseInt(tabV[0]) + qte;
+	                int prixTab = Integer.parseInt(tabV[1]) + prix;
+
+	                lstTmp.replace(plat, qteTab + "," + prix);
+
+	                lstI2.put(plat, qte);
+
+	                session.setAttribute("mntTot", mntTot);
+	                session.setAttribute("lstI", lstTmp);
+	                session.setAttribute("lstI2", lstI2);
+
+	            } else {
+
+	                lstI.put(plat, qte + "," + prix);
+	                lstI2.put(plat, qte);
+
+	                session.setAttribute("mntTot", mntTot);
+	                session.setAttribute("lstI", lstI);
+	                session.setAttribute("lstI2", lstI2);
+	            }
+
+	        } catch (ClassNotFoundException | SQLException e) {
+
+	            e.printStackTrace();
+	        }
+
+	        request.getRequestDispatcher("WEB-INF/Panier.jsp").forward(request, response);
 	}
 
 	/**

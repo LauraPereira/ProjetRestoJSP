@@ -6,7 +6,7 @@ public class Commande {
 	
 	private int idCommande;
 	private String idClient;
-	private Date date;
+	private String date;
 	private int total;
 	private String detail;
 	
@@ -18,7 +18,7 @@ public class Commande {
 	
 
 
-	public Commande(int idCommande, String idClient, Date date, int total, String detail) {
+	public Commande(int idCommande, String idClient, String date, int total, String detail) {
 		this.idCommande = idCommande;
 		this.idClient = idClient;
 		this.date = date;
@@ -50,12 +50,12 @@ public class Commande {
 	}
 
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
