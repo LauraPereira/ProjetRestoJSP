@@ -10,6 +10,17 @@ import java.sql.Statement;
 
 
 public class DaoClient {
+	
+	public void updateAdresse (String id, String adresse) throws ClassNotFoundException, SQLException {
+		String sql = "update clients set adresse = '"+adresse+"' where idClient = '"+id+"'";
+		
+		Class.forName("com.mysql.jdbc.Driver") ; 
+		Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/projet_resto_jsp", "root", "root" ); 
+		Statement st = conn.createStatement();
+
+		st.executeUpdate(sql);
+		conn.close();
+	}
 
 
 	public void insert (Client p) throws ClassNotFoundException, SQLException {

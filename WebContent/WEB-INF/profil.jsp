@@ -25,7 +25,7 @@
 	rel="stylesheet" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Connexion Succès</title>
+<title>Mon Espace</title>
 </head>
 <body class="resto">
 
@@ -56,22 +56,72 @@
 					<%
 						String prenom = session.getAttribute("prenom").toString();
 						String nom = session.getAttribute("nom").toString();
-					%> <a class="nav-link" style="color: var(--bs-red)"
-					href="./profil"><%=prenom + " " + nom%> - Mon espace</a>
+					%> <a class="nav-link disabled" style="color: var(--bs-red)"
+					href=""><%=prenom + " " + nom%> - Mon espace</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="accueil.jsp">Déconnexion</a>
+				<li class="nav-item"><a class="nav-link" href="./deconnexion">Déconnexion</a>
 				</li>
 			</ul>
 		</div>
 	</div>
 	</nav> </header>
 
-	<main class="recap mt-3 d-flex justify-content-center">
-	<div>
-		Connexion réussie ! <br /> Bienvenue <span class="italic"
-			style="color: var(- -bs-red)"> <%=prenom + " " + nom%></span> <br />
-		<br /> <a href="carte.jsp">Voir note carte</a><br />
-	</div>
-	</main>
+    <main class="profil mt-5">
+      <div class="mt-3">
+        <h2 class="italic" style="color: var(--bs-red)">Mes informations</h2>
+
+        <h5 class="mt-4"><%=prenom + " " + nom%></h5>
+
+        <form action="modifyAdress" method="post">
+          <div class="mb-3">
+            <label for="adresse" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              value="<%=request.getAttribute("adresse")%>"
+              name="adresse"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="background-color: #3cb371"
+          >
+            Modifier mon adresse
+          </button>
+        </form>
+      </div>
+
+      <div class="profil mt-5">
+        <h2 class="italic" style="color: var(--bs-red)">Mes commandes</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Détail</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>12/02/2023</td>
+              <td>blabla</td>
+              <td>12€</td>
+            </tr>
+            <tr>
+              <td>11/05/2023</td>
+              <td>Détail</td>
+              <td>54€</td>
+            </tr>
+            <tr>
+              <td>11/08/2023</td>
+              <td>Détail</td>
+              <td>26€</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
 </body>
 </html>
