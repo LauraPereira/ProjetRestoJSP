@@ -33,7 +33,7 @@
       <title>Accueil</title>
     </head>
 
-    <body>
+    <body class="resto">
 
       <%-- <jsp:include page="WEB-SRC/components/header.jsp"></jsp:include>
         --%>
