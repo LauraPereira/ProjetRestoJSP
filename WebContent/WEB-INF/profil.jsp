@@ -117,7 +117,7 @@
                   <%
 		
             for (Commande c : liste) {
-                out.print("<tr> <td>" + c.getDate() + " </td><td>" + c.getDetail() + "</td><td>" + c.getTotal()+ "</td></tr>");
+                out.print("<tr> <td>" + c.getDate() + " </td><td>" + c.getDetail() + "</td><td>" + c.getTotal()+ " € </td></tr>");
 
             }
         %>
