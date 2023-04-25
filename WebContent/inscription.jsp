@@ -90,26 +90,26 @@
 	<form action="insert" method="post">
 		<div class="mb-3 mt-3">
 			<label for="id" class="form-label">Identifiant</label> <input
-				type="text" class="form-control"
+				type="text" required class="form-control"
 				placeholder="Entrez votre identifiant" name="id" />
 		</div>
 		<div class="mb-3 mt-3">
-			<label for="nom" class="form-label">Nom</label> <input type="text"
+			<label for="nom" class="form-label">Nom</label> <input type="text" required
 				class="form-control" placeholder="Entrez votre nom" name="nom" />
 		</div>
 		<div class="mb-3 mt-3">
 			<label for="prenom" class="form-label">Prénom</label> <input
-				type="text" class="form-control" placeholder="Entrez votre prenom"
+				type="text" required class="form-control" placeholder="Entrez votre prenom"
 				name="prenom" />
 		</div>
 		<div class="mb-3 mt-3">
 			<label for="psw" class="form-label">Mot de passe</label> <input
-				type="password" class="form-control"
+				type="password" required class="form-control"
 				placeholder="Choisissez un mot de passe" name="psw" />
 		</div>
 		<div class="mb-3 mt-3">
 			<label for="adresse" class="form-label">Adresse</label> <input
-				type="text" class="form-control" placeholder="Entrez votre adresse"
+				type="text" required class="form-control" placeholder="Entrez votre adresse"
 				name="adresse" />
 		</div>
 

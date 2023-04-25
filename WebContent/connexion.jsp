@@ -90,13 +90,13 @@
 	<form action="connect" method="post">
 		<div class="mb-3 mt-3">
 			<label for="id" class="form-label">Identifiant</label> <input
-				type="text" class="form-control"
+				type="text" required class="form-control"
 				placeholder="Saisir votre identifiant" name="id" />
 		</div>
 
 		<div class="mb-3 mt-3">
 			<label for="psw" class="form-label">Mot de passe</label> <input
-				type="password" class="form-control"
+				type="password" required class="form-control"
 				placeholder="Saisir votre mot de passe" name="psw" />
 		</div>
 

@@ -88,7 +88,7 @@
 			<c:forEach var="aE" items="${requestScope.lstE}">
 				<div class="col-sm-3 p-3">
 					<img src="WEB-SRC/img/<c:out value="${aE.nomImage}" />"
-						class="rounded-circle" width="304" height="236" />
+						class="rounded-circle" />
 					<p class="plat">
 						<c:out value="${aE.nomArticle}" />
 					</p>
@@ -103,13 +103,13 @@
 			</c:forEach>
 		</div>
 	</div>
-	<div>
+	<div class="container-fluid mt-3">
 		<h2>Nos Plats</h2>
 		<div class="row">
 			<c:forEach var="aP" items="${requestScope.lstP}">
 				<div class="col-sm-3 p-3">
 					<img src="WEB-SRC/img/<c:out value="${aP.nomImage}" />"
-						class="rounded-circle" width="304" height="236" />
+						class="rounded-circle" />
 					<p class="plat">
 						<c:out value="${aP.nomArticle}" />
 					</p>
