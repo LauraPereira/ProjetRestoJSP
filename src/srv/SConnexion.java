@@ -58,7 +58,7 @@ public class SConnexion extends HttpServlet {
 			if (id.equals(idBdd) && password.equals(pswBdd)) {
 				
 				// On stocke les infos du client
-				request.setAttribute("client", c);
+//				request.setAttribute("client", c);
 				
 				// On place des infos dans session
 				// (choix de ne pas placer l'obejt c en entier car il contient le mdp : sécurité)

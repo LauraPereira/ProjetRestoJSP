@@ -31,7 +31,7 @@
 
 	<header class="header">
 	<div class="header__baniere">
-		<img class="header__baniere__img" src="images/logo.jpg"
+		<img class="header__baniere__img" src="WEB-SRC/img/logo.jpg"
 			alt="image-baniere" />
 	</div>
 
@@ -57,7 +57,7 @@
 						String prenom = session.getAttribute("prenom").toString();
 						String nom = session.getAttribute("nom").toString();
 					%> <a class="nav-link disabled" style="color: var(--bs-red)"
-					href=""><%=prenom + " " + nom%></a>
+					href=""><%=prenom + " " + nom%> - Mon espace</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="accueil.jsp">Déconnexion</a>
 				</li>
