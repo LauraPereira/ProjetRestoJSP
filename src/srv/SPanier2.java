@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,14 +33,6 @@ public class SPanier2 extends HttpServlet {
 	 */
 	public SPanier2() {
 		super();
-	}
-
-	public static HashMap<Object, String> getLstI() {
-		return lstI;
-	}
-
-	public int getMntTot() {
-		return mntTot;
 	}
 
 	/**
