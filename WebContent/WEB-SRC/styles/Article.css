@@ -2,6 +2,11 @@ body>* {
 	width: 100%;
 }
 
+.rond{
+	width: 100%;
+	heght: 4vh;
+}
+
 .resto {
 	width: 65vw;
 	margin-left: auto;
@@ -10,6 +15,7 @@ body>* {
 
 p, .p-3 {
 	text-align: center;
+	font-size: 1vmin;
 }
 
 .plat {
