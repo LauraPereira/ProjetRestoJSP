@@ -25,7 +25,6 @@ public class SPanier extends HttpServlet {
 	 */
 	public SPanier() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -34,7 +33,7 @@ public class SPanier extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		DaoArticle x = new DaoArticle();
 
 		try {
@@ -42,7 +41,7 @@ public class SPanier extends HttpServlet {
 			request.setAttribute("lst", lst);
 
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		request.getRequestDispatcher("WEB-INF/Panier.jsp").forward(request, response);
@@ -54,7 +53,7 @@ public class SPanier extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		doGet(request, response);
 	}
 

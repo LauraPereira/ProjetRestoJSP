@@ -23,7 +23,7 @@ public class SPanier2 extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private HashMap<Object, String> lstI = new HashMap<Object, String>();
+	private static HashMap<Object, String> lstI = new HashMap<Object, String>();
 	private int mntTot;
 
 	/**
@@ -31,7 +31,14 @@ public class SPanier2 extends HttpServlet {
 	 */
 	public SPanier2() {
 		super();
-		// TODO Auto-generated constructor stub
+	}
+
+	public static HashMap<Object, String> getLstI() {
+		return lstI;
+	}
+
+	public int getMntTot() {
+		return mntTot;
 	}
 
 	/**
@@ -40,6 +47,7 @@ public class SPanier2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		session.setAttribute("mntTot", mntTot);
@@ -56,6 +64,7 @@ public class SPanier2 extends HttpServlet {
 			Article a = x.selectByNom(plat);
 
 			int prix = a.getPrix() * qte;
+
 			if (session.getAttribute("mntTot") != null) {
 				mntTot = prix + (int) session.getAttribute("mntTot");
 			} else {
@@ -87,7 +96,7 @@ public class SPanier2 extends HttpServlet {
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -100,7 +109,7 @@ public class SPanier2 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		doGet(request, response);
 	}
 

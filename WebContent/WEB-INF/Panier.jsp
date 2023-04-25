@@ -12,8 +12,13 @@
 	rel="stylesheet" />
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<<<<<<< HEAD
 <link rel="stylesheet" href="WEB-SRC/style/Panier.css" />
 <link rel="stylesheet" href="WEB-SRC/styles/header.css" />
+=======
+<link rel="stylesheet" href="style/Panier.css" />
+
+>>>>>>> dev
 <!-- IMPORT POLICES -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,13 +33,11 @@
 <body>
 	<header class="header">
 	<div class="header__baniere">
-		<img class="header__baniere__img" src="WEB-SRC/img/logo.jpg"
-			alt="image-baniere" />
+		<<<<<<< HEAD <img class="header__baniere__img"
+			src="WEB-SRC/img/logo.jpg" alt="image-baniere" />
 	</div>
 
-	<!-- Ajouter la classe active sur le a de la page appelée --> <!-- Quand on est connecté : faire disparaître les liens login et inscription -->
-	<!-- Faire apparaître un lien déconnexion --> <nav
-		class="navbar navbar-expand-sm navbar-dark italic fs-5"
+	<nav class="navbar navbar-expand-sm navbar-dark italic fs-5"
 		style="background-color: #3cb371">
 	<div class="container-fluid">
 		<a class="navbar-brand fs-5" style="color: var(- -bs-red)" href="#">Eat
@@ -63,8 +66,7 @@
 					%> <a class="nav-link disabled" style="color: var(- -bs-red)"
 					href=""><%=prenom + " " + nom%> - Mon espace</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="accueil.jsp">Déconnexion</a>
-				</li>
+				<li class="nav-item"><a class="nav-link" href="accueil.jsp">Déconnexion</a></li>
 			</ul>
 		</div>
 	</div>
@@ -117,6 +119,5 @@
 	</div>
 	<form action="SRecapCommande" method="post" id="formV">
 		<input type="submit" value="Valider le panier" class="btn btn-success">
-	</form>
 </body>
 </html>
