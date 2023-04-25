@@ -11,7 +11,7 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- IMPORT STYLES -->
-<link rel="stylesheet" href="WEB-SRC/style/Article.css" />
+<link rel="stylesheet" href="WEB-SRC/styles/Article.css" />
 <link rel="stylesheet" href="WEB-SRC/styles/header.css" />
 <!-- IMPORT POLICES -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />

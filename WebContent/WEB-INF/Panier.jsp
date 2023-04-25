@@ -13,7 +13,7 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <<<<<<< HEAD
-<link rel="stylesheet" href="WEB-SRC/style/Panier.css" />
+<link rel="stylesheet" href="WEB-SRC/styles/Panier.css" />
 <link rel="stylesheet" href="WEB-SRC/styles/header.css" />
 =======
 <link rel="stylesheet" href="style/Panier.css" />
