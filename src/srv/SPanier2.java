@@ -60,12 +60,6 @@ public class SPanier2 extends HttpServlet {
 
 			int prix = a.getPrix() * qte;
 
-			lstI.put(plat, qte + "," + prix);
-
-			session.setAttribute("lstI", lstI);
-			mntTot += prix;
-			session.setAttribute("mntTot", mntTot);
-
 			if (session.getAttribute("mntTot") != null) {
 				mntTot = prix + (int) session.getAttribute("mntTot");
 			} else {
