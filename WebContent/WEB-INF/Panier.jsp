@@ -96,39 +96,39 @@
 		<c:out value="${sessionScope.mntTot}" />
 		€)
 	</p>
-
-	<div>
-		<p>Fais ton choix parmi nos plats faits maison :</p>
-		<form action="SPanier2" methode="post">
-			<select name="plats">
-				<option value=""></option>
-				<c:forEach var="a" items="${requestScope.lst}">
-					<option value="<c:out value="${a.nomArticle}" />"><c:out
-							value="${a.nomArticle}" /></option>
-				</c:forEach>
-			</select>
-			<p>Quantité:</p>
-			<input type="text" name="qte"> <input type="submit"
-				value="Ajouter au panier">
-		</form>
-	</div>
-	<div class="col-sm-6 container mt-3">
-		<table class="table">
-			<tr>
-				<th>Articles</th>
-				<th>Quantité</th>
-				<th>Prix total</th>
-			</tr>
-			<c:forEach var="infos" items="${sessionScope.lstI}">
+	<div class="row">
+		<div class="col-sm-6 container mt-3">
+			<p>Fais ton choix parmi nos plats faits maison :</p>
+			<form action="SPanier2" methode="post">
+				<select name="plats" class="form-select">
+					<option value=""></option>
+					<c:forEach var="a" items="${requestScope.lst}">
+						<option value="<c:out value="${a.nomArticle}" />"><c:out
+								value="${a.nomArticle}" /></option>
+					</c:forEach>
+				</select>
+				<p>Quantité:</p>
+				<input type="text" name="qte"> <input type="submit"
+					value="Ajouter au panier">
+			</form>
+		</div>
+		<div class="col-sm-6 container mt-3">
+			<table class="table">
 				<tr>
-					<td><c:out value="${infos.key}" /></td>
-					<c:forTokens items="${infos.value}" delims="," var="split">
-						<td><c:out value="${split}" /></td>
-					</c:forTokens>
+					<th>Articles</th>
+					<th>Quantité</th>
+					<th>Prix total</th>
 				</tr>
-			</c:forEach>
-		</table>
-	</div>
+				<c:forEach var="infos" items="${sessionScope.lstI}">
+					<tr>
+						<td><c:out value="${infos.key}" /></td>
+						<c:forTokens items="${infos.value}" delims="," var="split">
+							<td><c:out value="${split}" /></td>
+						</c:forTokens>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
 	</div>
 
 	<form action="SRecapCommande" method="post" id="formV">
