@@ -4,16 +4,15 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-<<<<<<< HEAD
-=======
+
 import javax.servlet.http.HttpSession;
->>>>>>> 42921a74435ebcb0bd873c7d8991361bd5f2a70b
 
 import model.Article;
 import model.DaoArticle;
@@ -26,8 +25,9 @@ public class SPanier2 extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-
 	private static HashMap<Object, String> lstI = new HashMap<Object, String>();
+	private static HashMap<String, Integer> lstI2 = new HashMap<String, Integer>();
+
 	private int mntTot;
 
 	/**
@@ -45,6 +45,9 @@ public class SPanier2 extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+		session.setAttribute("mntTot", mntTot);
+		System.out.println(mntTot);
+		session.setAttribute("lstI", lstI);
 
 		String plat = request.getParameter("plats");
 
@@ -57,14 +60,54 @@ public class SPanier2 extends HttpServlet {
 			Article a = x.selectByNom(plat);
 
 			int prix = a.getPrix() * qte;
+
 			lstI.put(plat, qte + "," + prix);
-			
+
 			session.setAttribute("lstI", lstI);
 			System.out.println(mntTot);
 			mntTot += prix;
 			System.out.println(mntTot);
 			session.setAttribute("mntTot", mntTot);
-			
+
+			if (session.getAttribute("mntTot") != null) {
+				mntTot = prix + (int) session.getAttribute("mntTot");
+				System.out.println(mntTot);
+			} else {
+				mntTot += prix;
+				System.out.println(mntTot);
+			}
+
+			HashMap lstTmp = new HashMap();
+			lstTmp = (HashMap) session.getAttribute("lstI");
+			String value = (String) lstTmp.get(plat);
+
+			if (value != null) {
+
+				String[] tabV = value.split(",");
+
+				int qteTab = Integer.parseInt(tabV[0]) + qte;
+				int prixTab = Integer.parseInt(tabV[1]) + prix;
+
+				lstTmp.replace(plat, qteTab + "," + prix);
+
+				lstI2.put(plat, qte);
+
+				session.setAttribute("mntTot", mntTot);
+				System.out.println(mntTot);
+				session.setAttribute("lstI", lstTmp);
+				session.setAttribute("lstI2", lstI2);
+
+			} else {
+
+				lstI.put(plat, qte + "," + prix);
+				lstI2.put(plat, qte);
+
+				session.setAttribute("mntTot", mntTot);
+				System.out.println(mntTot);
+				session.setAttribute("lstI", lstI);
+				session.setAttribute("lstI2", lstI2);
+			}
+
 		} catch (ClassNotFoundException | SQLException e) {
 
 			e.printStackTrace();
@@ -79,6 +122,7 @@ public class SPanier2 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		doGet(request, response);
 	}
 

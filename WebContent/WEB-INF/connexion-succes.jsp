@@ -47,19 +47,20 @@
 		<div class="collapse navbar-collapse d-flex justify-content-between"
 			id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="carte.jsp">Notre
-						carte</a></li>
-				<li class="nav-item"><a class="nav-link" href="src/srv/SPanier">Mon menu</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/SArticle">Notre carte</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/SPanier">Mon menu</a></li>
 			</ul>
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<%
 						String prenom = session.getAttribute("prenom").toString();
 						String nom = session.getAttribute("nom").toString();
-					%> <a class="nav-link" style="color: var(--bs-red)"
-					href="./profil"><%=prenom + " " + nom%> - Mon espace</a>
+					%> <a class="nav-link" style="color: var(- -bs-red)" href="profil"><%=prenom + " " + nom%>
+						- Mon espace</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="accueil.jsp">Déconnexion</a>
+				<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a>
 				</li>
 			</ul>
 		</div>
@@ -70,7 +71,7 @@
 	<div>
 		Connexion réussie ! <br /> Bienvenue <span class="italic"
 			style="color: var(- -bs-red)"> <%=prenom + " " + nom%></span> <br />
-		<br /> <a href="carte.jsp">Voir note carte</a><br />
+		<br /> <a href="SArticle">Voir note carte</a><br />
 	</div>
 	</main>
 </body>

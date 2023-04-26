@@ -27,32 +27,61 @@
 <title>Inscription</title>
 </head>
 <body class="resto">
-	<header class="header">
+		<header class="header">
 	<div class="header__baniere">
 		<img class="header__baniere__img" src="WEB-SRC/img/logo.jpg"
 			alt="image-baniere" />
 	</div>
-
-	<!-- Ajouter la classe active sur le a de la page appelée --> <!-- Quand on est connecté : faire disparaître les liens login et inscription -->
-	<!-- Faire apparaître un lien déconnexion --> <nav
-		class="navbar navbar-expand-sm navbar-dark italic fs-5"
+	<nav class="navbar navbar-expand-sm navbar-dark italic fs-5"
 		style="background-color: #3cb371">
 	<div class="container-fluid">
-		<a class="navbar-brand fs-5" style="color: var(--bs-red)" href="accueil.jsp">Eat
-			& Love</a>
+		<a class="navbar-brand fs-5" style="color: var(--bs-red)"
+			href="accueil.jsp">Eat & Love</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<div class="collapse navbar-collapse d-flex justify-content-between"
+			id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="carte.jsp">Notre
-						carte</a></li>
-				<li class="nav-item"><a class="nav-link" href="connexion.jsp">Connexion</a>
-				</li>
-				<li class="nav-item"><a class="nav-link active" href="#">Inscription</a>
-				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/SArticle">Notre carte</a></li>
+					
+									<%
+					if (session.getAttribute("id") == null) {
+				%>
+				<li class="nav-item"><a class="nav-link "
+					href="connexion.jsp">Connexion</a></li>
+				<li class="nav-item"><a class="nav-link active" href="inscription.jsp">Inscription</a></li>
+								<%
+					}
+				%>
+				<%
+					if (session.getAttribute("id") != null) {
+				%>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/SPanier">Mon menu</a></li>
+				<%
+					}
+				%>
 			</ul>
+			<%
+				if (session.getAttribute("id") != null) {
+			%>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<%
+						String prenom = session.getAttribute("prenom").toString();
+							String nom = session.getAttribute("nom").toString();
+					%> <a class="nav-link" style="color: var(--bs-red)"
+					href="profil"><%=prenom + " " + nom%> - Mon espace</a>
+				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/deconnexion">Déconnexion</a></li>
+			</ul>
+			<%
+				}
+			%>
 		</div>
 	</div>
 	</nav> </header>
@@ -61,26 +90,26 @@
 	<form action="insert" method="post">
 		<div class="mb-3 mt-3">
 			<label for="id" class="form-label">Identifiant</label> <input
-				type="text" class="form-control"
+				type="text" required class="form-control"
 				placeholder="Entrez votre identifiant" name="id" />
 		</div>
 		<div class="mb-3 mt-3">
-			<label for="nom" class="form-label">Nom</label> <input type="text"
+			<label for="nom" class="form-label">Nom</label> <input type="text" required
 				class="form-control" placeholder="Entrez votre nom" name="nom" />
 		</div>
 		<div class="mb-3 mt-3">
 			<label for="prenom" class="form-label">Prénom</label> <input
-				type="text" class="form-control" placeholder="Entrez votre prenom"
+				type="text" required class="form-control" placeholder="Entrez votre prenom"
 				name="prenom" />
 		</div>
 		<div class="mb-3 mt-3">
 			<label for="psw" class="form-label">Mot de passe</label> <input
-				type="password" class="form-control"
+				type="password" required class="form-control"
 				placeholder="Choisissez un mot de passe" name="psw" />
 		</div>
 		<div class="mb-3 mt-3">
 			<label for="adresse" class="form-label">Adresse</label> <input
-				type="text" class="form-control" placeholder="Entrez votre adresse"
+				type="text" required class="form-control" placeholder="Entrez votre adresse"
 				name="adresse" />
 		</div>
 

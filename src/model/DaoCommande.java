@@ -50,7 +50,7 @@ public class DaoCommande {
 	}
 
 	public void insert(Commande c) throws ClassNotFoundException, SQLException {
-		String sql = "insert into clients values (?, ?, ?, ?, ?)";
+		String sql = "insert into commandes values (?, ?, ?, ?, ?)";
 
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet_resto_jsp", "root", "root");

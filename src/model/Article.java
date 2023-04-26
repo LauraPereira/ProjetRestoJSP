@@ -3,12 +3,19 @@ package model;
 public class Article {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> dev
 	private int IdArticle;
 	private String NomArticle;
 	private String Description;
 	private int Prix;
 	private String NomImage;
 	private String Categorie;
+
+	public Article() {
+		super();
+	}
 
 	public Article(int IdArticle, String NomArticle, String Description, int Prix, String NomImage, String Categorie) {
 		super();
@@ -50,6 +57,7 @@ public class Article {
 				+ ", Prix=" + Prix + ", NomImage=" + NomImage + ", Categorie=" + Categorie + "]";
 	}
 }
+<<<<<<< HEAD
 =======
     private int IdArticle;
     private String NomArticle;
@@ -99,3 +107,5 @@ public class Article {
     }
 }
 >>>>>>> 42921a74435ebcb0bd873c7d8991361bd5f2a70b
+=======
+>>>>>>> dev

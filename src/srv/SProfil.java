@@ -72,9 +72,8 @@ public class SProfil extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		// On dirige vers la page
-		request.getRequestDispatcher("./WEB-INF/profil.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/profil.jsp").forward(request, response);
 	}
 
 	/**

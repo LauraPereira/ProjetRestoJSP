@@ -36,7 +36,6 @@
 		<img class="header__baniere__img" src="WEB-SRC/img/logo.jpg"
 			alt="image-baniere" />
 	</div>
-
 	<nav class="navbar navbar-expand-sm navbar-dark italic fs-5"
 		style="background-color: #3cb371">
 	<div class="container-fluid">
@@ -49,82 +48,101 @@
 		<div class="collapse navbar-collapse d-flex justify-content-between"
 			id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="carte.jsp">Notre
-						carte</a></li>
-				<li class="nav-item"><a class="nav-link" href="src/srv/SPanier">Mon menu</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/SArticle">Notre carte</a></li>
+
+				<%
+					if (session.getAttribute("id") == null) {
+				%>
+				<li class="nav-item"><a class="nav-link" href="connexion.jsp">Connexion</a></li>
+				<li class="nav-item"><a class="nav-link" href="inscription.jsp">Inscription</a></li>
+				<%
+					}
+				%>
+				<%
+					if (session.getAttribute("id") != null) {
+				%>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/SPanier">Mon menu</a></li>
+				<%
+					}
+				%>
 			</ul>
+			<%
+				if (session.getAttribute("id") != null) {
+			%>
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<%
 						String prenom = session.getAttribute("prenom").toString();
-						String nom = session.getAttribute("nom").toString();
-					%> <a class="nav-link disabled" style="color: var(--bs-red)"
-					href=""><%=prenom + " " + nom%> - Mon espace</a>
+							String nom = session.getAttribute("nom").toString();
+					%> <a class="nav-link" style="color: var(- -bs-red)" href="profil"><%=prenom + " " + nom%>
+						- Mon espace</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="./deconnexion">Déconnexion</a>
-				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="../ProjetWeb/deconnexion">Déconnexion</a></li>
 			</ul>
+			<%
+				}
+			%>
 		</div>
 	</div>
 	</nav> </header>
 
-    <main class="profil mt-5">
-      <div class="mt-3">
-        <h2 class="italic" style="color: var(--bs-red)">Mes informations</h2>
+	<main class="profil mt-5">
+	<div class="mt-3">
+		<h2 class="italic" style="color: var(- -bs-red)">Mes informations</h2>
+		<%
+			String prenom = session.getAttribute("prenom").toString();
+			String nom = session.getAttribute("nom").toString();
+		%>
+		<h5 class="mt-4"><%=prenom + " " + nom%></h5>
 
-        <h5 class="mt-4"><%=prenom + " " + nom%></h5>
+		<form action="modifyAdress" method="post">
+			<div class="mb-3">
+				<label for="adresse" class="form-label"></label> <input type="text"
+					class="form-control" value="<%=request.getAttribute("adresse")%>"
+					name="adresse" />
+			</div>
 
-        <form action="modifyAdress" method="post">
-          <div class="mb-3">
-            <label for="adresse" class="form-label"></label>
-            <input
-              type="text"
-              class="form-control"
-              value="<%=request.getAttribute("adresse")%>"
-              name="adresse"
-            />
-          </div>
+			<button type="submit" class="btn btn-primary"
+				style="background-color: #3cb371">Modifier mon adresse</button>
+		</form>
+	</div>
 
-          <button
-            type="submit"
-            class="btn btn-primary"
-            style="background-color: #3cb371"
-          >
-            Modifier mon adresse
-          </button>
-        </form>
-      </div>
+	<div class="profil mt-5">
+		<h2 class="italic" style="color: var(- -bs-red)">Mes commandes</h2>
 
-      <div class="profil mt-5">
-        <h2 class="italic" style="color: var(--bs-red)">Mes commandes</h2>
-        
-        <% ArrayList<Commande> liste = (ArrayList<Commande>) request.getAttribute("commandes");
-        if(liste.isEmpty()){
-        	out.print("<p> Votre historique de commande est vide</p>");
-        }
-        %>
-        
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Détail</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-          
-                  <%
-		
-            for (Commande c : liste) {
-                out.print("<tr> <td>" + c.getDate() + " </td><td>" + c.getDetail() + "</td><td>" + c.getTotal()+ " € </td></tr>");
+		<%
+			if (request.getAttribute("commandes") != null) {
+				ArrayList<Commande> liste = (ArrayList<Commande>) request.getAttribute("commandes");
+				if (liste.isEmpty()) {
+					out.print("<p> Votre historique de commande est vide</p>");
+				}
+		%>
 
-            }
-        %>
-         
-          </tbody>
-        </table>
-      </div>
-    </main>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Détail</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<%
+					for (Commande c : liste) {
+							out.print("<tr> <td>" + c.getDate() + " </td><td>" + c.getDetail() + "</td><td>" + c.getTotal()
+									+ " € </td></tr>");
+
+						}
+					}
+				%>
+
+			</tbody>
+		</table>
+	</div>
+	</main>
 </body>
 </html>
