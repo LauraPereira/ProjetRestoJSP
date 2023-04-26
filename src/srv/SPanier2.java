@@ -70,7 +70,6 @@ public class SPanier2 extends HttpServlet {
 
 			if (session.getAttribute("mntTot") != null) {
 				mntTot = prix + (int) session.getAttribute("mntTot");
-
 			} else {
 				mntTot += prix;
 
