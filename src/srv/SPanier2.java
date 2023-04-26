@@ -45,7 +45,6 @@ public class SPanier2 extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		session.setAttribute("mntTot", mntTot);
-		System.out.println(mntTot);
 		session.setAttribute("lstI", lstI);
 
 		String plat = request.getParameter("plats");
@@ -62,10 +61,10 @@ public class SPanier2 extends HttpServlet {
 
 			if (session.getAttribute("mntTot") != null) {
 				mntTot = prix + (int) session.getAttribute("mntTot");
-				System.out.println(mntTot);
+
 			} else {
 				mntTot += prix;
-				System.out.println(mntTot);
+
 			}
 
 			HashMap lstTmp = new HashMap();
@@ -84,7 +83,6 @@ public class SPanier2 extends HttpServlet {
 				lstI2.put(plat, qte);
 
 				session.setAttribute("mntTot", mntTot);
-				System.out.println(mntTot);
 				session.setAttribute("lstI", lstTmp);
 				session.setAttribute("lstI2", lstI2);
 
@@ -94,7 +92,6 @@ public class SPanier2 extends HttpServlet {
 				lstI2.put(plat, qte);
 
 				session.setAttribute("mntTot", mntTot);
-				System.out.println(mntTot);
 				session.setAttribute("lstI", lstI);
 				session.setAttribute("lstI2", lstI2);
 			}
