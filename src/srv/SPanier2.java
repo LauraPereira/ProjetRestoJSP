@@ -10,6 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
+=======
+import javax.servlet.http.HttpSession;
+>>>>>>> 42921a74435ebcb0bd873c7d8991361bd5f2a70b
 
 import model.Article;
 import model.DaoArticle;
@@ -22,7 +26,8 @@ public class SPanier2 extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private HashMap<Object, String> lstI = new HashMap<Object, String>();
+
+	private static HashMap<Object, String> lstI = new HashMap<Object, String>();
 	private int mntTot;
 
 	/**
@@ -30,7 +35,6 @@ public class SPanier2 extends HttpServlet {
 	 */
 	public SPanier2() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -39,7 +43,8 @@ public class SPanier2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		HttpSession session = request.getSession();
 
 		String plat = request.getParameter("plats");
 
@@ -53,13 +58,15 @@ public class SPanier2 extends HttpServlet {
 
 			int prix = a.getPrix() * qte;
 			lstI.put(plat, qte + "," + prix);
-			request.setAttribute("lstI", lstI);
+			
+			session.setAttribute("lstI", lstI);
 			System.out.println(mntTot);
 			mntTot += prix;
 			System.out.println(mntTot);
-			request.setAttribute("mntTot", mntTot);
+			session.setAttribute("mntTot", mntTot);
+			
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -72,7 +79,6 @@ public class SPanier2 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

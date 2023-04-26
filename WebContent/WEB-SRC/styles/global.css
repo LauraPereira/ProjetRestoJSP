@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap')
+	;
+
+
+
+
+/* TAILLE ELEMENTS PRINCIPAUX */
+
+/* BODY
+Quand on cible le body, les modifs ne se font pas 
+Il faut donc ajouter la classe resto au body  */
+.resto {
+  width: 65vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* HEADER MAIN FOOTER
+Tous les enfants directs de body 
+largeur de 100% */
+body > * {
+  width: 100%;
+}

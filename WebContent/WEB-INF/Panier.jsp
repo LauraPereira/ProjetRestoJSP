@@ -84,7 +84,7 @@
 				<th>Quantité</th>
 				<th>Prix total</th>
 			</tr>
-			<c:forEach var="infos" items="${requestScope.lstI}">
+			<c:forEach var="infos" items="${sessionScope.lstI}">
 				<tr>
 					<td><c:out value="${infos.key}" /></td>
 					<c:forTokens items="${infos.value}" delims="," var="split">
