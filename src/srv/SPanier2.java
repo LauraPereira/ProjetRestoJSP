@@ -63,9 +63,7 @@ public class SPanier2 extends HttpServlet {
 			lstI.put(plat, qte + "," + prix);
 
 			session.setAttribute("lstI", lstI);
-			System.out.println(mntTot);
 			mntTot += prix;
-			System.out.println(mntTot);
 			session.setAttribute("mntTot", mntTot);
 
 			if (session.getAttribute("mntTot") != null) {
