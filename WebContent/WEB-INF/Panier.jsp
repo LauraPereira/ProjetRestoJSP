@@ -94,7 +94,7 @@
 		La commande de
 		<%=session.getAttribute("prenom").toString()%>
 		(Montant panier :
-		<c:out value="${requestScope.mntTot}" />
+		<c:out value="${sessionScope.mntTot}" />
 		€)
 	</p>
 	<div class="row">
